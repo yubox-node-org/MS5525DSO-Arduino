@@ -108,7 +108,7 @@ bool MS5525DSO::readPressureAndTemperature(double * pressure, double * temperatu
   }
 
   // Difference between actual and reference temperature
-  int64_t dT = raw[1] - ((int64_t)T_REF) << Q5;
+  int64_t dT = raw[1] - ((int64_t)T_REF << Q5);
 
   // Offset at actual temperature
   int64_t off = ((int64_t)P_OFF << Q2) + ((TC_OFF * dT) >> Q4);
